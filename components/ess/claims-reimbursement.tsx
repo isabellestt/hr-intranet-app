@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import { currentUser } from '@/lib/mock-data'
 
 const expenseTypes = ['Meals & Entertainment', 'Travel', 'Accommodation', 'Office Supplies', 'Training', 'Medical', 'Other']
 
@@ -26,14 +25,13 @@ export default function ClaimsReimbursement() {
     setTimeout(() => setSubmitted(false), 3000)
   }
 
-  const inputClass = "w-full px-3 py-2 rounded text-sm text-[#1A2E55] bg-white border-0 outline-none focus:ring-1 focus:ring-[#B8D4E8]"
-  const readOnlyClass = `${inputClass} bg-white/60 cursor-default`
-  const labelClass = "font-serif text-sm text-white/90 block mb-1"
+  const inputClass = "w-full px-3 py-2.5 text-sm font-sans text-[#1A1A1A] bg-white border border-[#CCC] outline-none focus:border-[#B8975A] focus:ring-1 focus:ring-[#B8975A]/20 transition-colors"
+  const readOnlyClass = `${inputClass} bg-[#F5F4F0] cursor-default`
+  const labelClass = "text-xs font-sans font-medium text-[#666] uppercase tracking-wider block mb-2"
 
   return (
-    <div className="p-6 min-h-full" style={{ backgroundColor: '#1A2E55' }}>
-      <h2 className="font-serif text-xl font-bold text-white mb-6">Claims & Reimbursement</h2>
-      <form onSubmit={handleSubmit} className="max-w-2xl space-y-5">
+    <div className="bg-white border border-[#E5E5E5] p-8">
+      <form onSubmit={handleSubmit} className="max-w-2xl space-y-6">
         <div>
           <label className={labelClass}>Description</label>
           <textarea
@@ -45,7 +43,7 @@ export default function ClaimsReimbursement() {
             required
           />
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           <div>
             <label className={labelClass}>Type of Expense</label>
             <select value={form.expenseType} onChange={update('expenseType')} className={inputClass}>
@@ -94,13 +92,14 @@ export default function ClaimsReimbursement() {
             className={`${inputClass} resize-none`}
           />
         </div>
-        <button
-          type="submit"
-          className="px-8 py-2.5 rounded-md text-sm font-semibold font-sans transition-all hover:opacity-90 active:scale-95 text-[#1A2E55]"
-          style={{ backgroundColor: '#B8D4E8' }}
-        >
-          {submitted ? 'Claim Submitted!' : 'Submit'}
-        </button>
+        <div className="flex justify-end pt-4">
+          <button
+            type="submit"
+            className="px-8 py-3 bg-[#1B2A4A] text-white text-sm font-sans font-medium tracking-wide hover:bg-[#2a3d5c] transition-colors"
+          >
+            {submitted ? 'Claim Submitted!' : 'Submit'}
+          </button>
+        </div>
       </form>
     </div>
   )

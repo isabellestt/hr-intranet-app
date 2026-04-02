@@ -16,34 +16,34 @@ const tabs = [
 
 const tabContent: Record<string, React.ReactNode> = {
   'Our Company': (
-    <div className="space-y-6">
+    <div className="space-y-8">
       <section>
-        <h3 className="font-serif text-lg font-bold text-white mb-2">Introduction</h3>
-        <p className="text-white/80 text-sm font-sans leading-relaxed">
+        <h3 className="font-serif text-xl font-semibold text-[#1B2A4A] mb-4">Introduction</h3>
+        <p className="text-sm font-sans text-[#444] leading-relaxed">
           Welcome to The Ritz-Carlton. This Employee Handbook has been prepared to acquaint you with the policies, procedures, and benefits that are an integral part of your employment. We hope this handbook will answer many of the questions that may arise during your career with us.
         </p>
-        <p className="text-white/80 text-sm font-sans leading-relaxed mt-3">
+        <p className="text-sm font-sans text-[#444] leading-relaxed mt-4">
           The Ritz-Carlton is committed to the principles of the Credo and the Gold Standards, which have guided our Ladies and Gentlemen since our founding. These values are at the heart of everything we do and represent the highest level of service excellence in the hospitality industry.
         </p>
       </section>
       <section>
-        <h3 className="font-serif text-lg font-bold text-white mb-2">Company Profile</h3>
-        <p className="text-white/80 text-sm font-sans leading-relaxed">
+        <h3 className="font-serif text-xl font-semibold text-[#1B2A4A] mb-4">Company Profile</h3>
+        <p className="text-sm font-sans text-[#444] leading-relaxed">
           The Ritz-Carlton Hotel Company, L.L.C. is the premier luxury hotel and resort company globally, with more than 100 properties on five continents. The company is owned by Marriott International and based in Chevy Chase, Maryland, USA.
         </p>
-        <p className="text-white/80 text-sm font-sans leading-relaxed mt-3">
-          Our mission is "We are Ladies and Gentlemen serving Ladies and Gentlemen." This motto exemplifies the anticipatory service provided by all staff members. The Ritz-Carlton Mystique is the ability to anticipate unstated needs of guests and fulfil them in a seamless manner.
+        <p className="text-sm font-sans text-[#444] leading-relaxed mt-4">
+          Our mission is &ldquo;We are Ladies and Gentlemen serving Ladies and Gentlemen.&rdquo; This motto exemplifies the anticipatory service provided by all staff members. The Ritz-Carlton Mystique is the ability to anticipate unstated needs of guests and fulfil them in a seamless manner.
         </p>
-        <div className="mt-4 grid grid-cols-2 gap-3">
+        <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-4">
           {[
             { label: 'Founded', value: '1983' },
             { label: 'Properties', value: '100+' },
             { label: 'Countries', value: '30+' },
             { label: 'Ladies & Gentlemen', value: '40,000+' },
           ].map(({ label, value }) => (
-            <div key={label} className="bg-white/10 rounded-lg p-3">
-              <div className="text-white/60 text-xs font-sans">{label}</div>
-              <div className="text-white font-serif font-bold text-lg">{value}</div>
+            <div key={label} className="bg-[#F5F4F0] p-4">
+              <div className="text-xs font-sans font-medium text-[#666] uppercase tracking-wider">{label}</div>
+              <div className="font-serif font-semibold text-xl text-[#1B2A4A] mt-1">{value}</div>
             </div>
           ))}
         </div>
@@ -51,21 +51,21 @@ const tabContent: Record<string, React.ReactNode> = {
     </div>
   ),
   'Employment': (
-    <div className="space-y-4">
-      <h3 className="font-serif text-lg font-bold text-white">Employment Terms & Conditions</h3>
-      <p className="text-white/80 text-sm font-sans leading-relaxed">All employees are engaged under a formal employment contract which details their position, compensation, working hours, and other conditions of service. Employment contracts are governed by applicable UAE Labour Law.</p>
-      <h4 className="font-serif text-base font-semibold text-white mt-4">Probation Period</h4>
-      <p className="text-white/80 text-sm font-sans leading-relaxed">New employees are subject to a probationary period of three (3) months. During this time, performance will be closely monitored and either party may terminate the contract with appropriate notice.</p>
-      <h4 className="font-serif text-base font-semibold text-white mt-4">Working Hours</h4>
-      <p className="text-white/80 text-sm font-sans leading-relaxed">Standard working hours are eight (8) hours per day and forty-eight (48) hours per week. Due to the nature of the hospitality industry, shift work and weekend duties may be required. Overtime is compensated in accordance with UAE Labour Law.</p>
+    <div className="space-y-6">
+      <h3 className="font-serif text-xl font-semibold text-[#1B2A4A]">Employment Terms & Conditions</h3>
+      <p className="text-sm font-sans text-[#444] leading-relaxed">All employees are engaged under a formal employment contract which details their position, compensation, working hours, and other conditions of service. Employment contracts are governed by applicable UAE Labour Law.</p>
+      <h4 className="font-serif text-lg font-semibold text-[#1B2A4A] mt-6">Probation Period</h4>
+      <p className="text-sm font-sans text-[#444] leading-relaxed">New employees are subject to a probationary period of three (3) months. During this time, performance will be closely monitored and either party may terminate the contract with appropriate notice.</p>
+      <h4 className="font-serif text-lg font-semibold text-[#1B2A4A] mt-6">Working Hours</h4>
+      <p className="text-sm font-sans text-[#444] leading-relaxed">Standard working hours are eight (8) hours per day and forty-eight (48) hours per week. Due to the nature of the hospitality industry, shift work and weekend duties may be required. Overtime is compensated in accordance with UAE Labour Law.</p>
     </div>
   ),
   'Remuneration': (
-    <div className="space-y-4">
-      <h3 className="font-serif text-lg font-bold text-white">Remuneration & Compensation</h3>
-      <p className="text-white/80 text-sm font-sans leading-relaxed">The Ritz-Carlton offers a competitive compensation package benchmarked against the luxury hospitality sector. Salaries are reviewed annually as part of the Performance Review process.</p>
-      <h4 className="font-serif text-base font-semibold text-white mt-4">Salary Components</h4>
-      <ul className="list-disc list-inside text-white/80 text-sm font-sans space-y-1">
+    <div className="space-y-6">
+      <h3 className="font-serif text-xl font-semibold text-[#1B2A4A]">Remuneration & Compensation</h3>
+      <p className="text-sm font-sans text-[#444] leading-relaxed">The Ritz-Carlton offers a competitive compensation package benchmarked against the luxury hospitality sector. Salaries are reviewed annually as part of the Performance Review process.</p>
+      <h4 className="font-serif text-lg font-semibold text-[#1B2A4A] mt-6">Salary Components</h4>
+      <ul className="list-disc list-inside text-sm font-sans text-[#444] space-y-2">
         <li>Basic Salary</li>
         <li>Housing Allowance</li>
         <li>Transportation Allowance</li>
@@ -74,10 +74,10 @@ const tabContent: Record<string, React.ReactNode> = {
     </div>
   ),
   'Benefits': (
-    <div className="space-y-4">
-      <h3 className="font-serif text-lg font-bold text-white">Employee Benefits</h3>
-      <p className="text-white/80 text-sm font-sans leading-relaxed">We offer a comprehensive benefits package designed to support your health, wellbeing, and financial security.</p>
-      <ul className="list-disc list-inside text-white/80 text-sm font-sans space-y-2">
+    <div className="space-y-6">
+      <h3 className="font-serif text-xl font-semibold text-[#1B2A4A]">Employee Benefits</h3>
+      <p className="text-sm font-sans text-[#444] leading-relaxed">We offer a comprehensive benefits package designed to support your health, wellbeing, and financial security.</p>
+      <ul className="list-disc list-inside text-sm font-sans text-[#444] space-y-2">
         <li>Comprehensive medical insurance (employee and dependents)</li>
         <li>Dental and optical coverage</li>
         <li>Life insurance</li>
@@ -89,18 +89,18 @@ const tabContent: Record<string, React.ReactNode> = {
     </div>
   ),
   'Leave': (
-    <div className="space-y-4">
-      <h3 className="font-serif text-lg font-bold text-white">Leave Entitlements</h3>
+    <div className="space-y-6">
+      <h3 className="font-serif text-xl font-semibold text-[#1B2A4A]">Leave Entitlements</h3>
       <div className="overflow-x-auto">
         <table className="w-full text-sm font-sans">
           <thead>
-            <tr className="border-b border-white/20">
-              <th className="text-white/60 text-left py-2 pr-4 font-semibold">Leave Type</th>
-              <th className="text-white/60 text-left py-2 pr-4 font-semibold">Days Per Year</th>
-              <th className="text-white/60 text-left py-2 font-semibold">Notes</th>
+            <tr className="border-b border-[#E5E5E5]">
+              <th className="text-[#666] text-left py-3 pr-4 font-semibold uppercase text-xs tracking-wider">Leave Type</th>
+              <th className="text-[#666] text-left py-3 pr-4 font-semibold uppercase text-xs tracking-wider">Days Per Year</th>
+              <th className="text-[#666] text-left py-3 font-semibold uppercase text-xs tracking-wider">Notes</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-white/10">
+          <tbody className="divide-y divide-[#E5E5E5]">
             {[
               ['Annual Leave', '21 days', 'Accrued monthly'],
               ['Medical / Sick Leave', '15 days', 'Medical certificate required'],
@@ -110,9 +110,9 @@ const tabContent: Record<string, React.ReactNode> = {
               ['Unpaid Leave', 'As approved', 'Management discretion'],
             ].map(([type, days, notes]) => (
               <tr key={type}>
-                <td className="text-white py-2 pr-4">{type}</td>
-                <td className="text-white/80 py-2 pr-4">{days}</td>
-                <td className="text-white/60 py-2 text-xs">{notes}</td>
+                <td className="text-[#1A1A1A] py-3 pr-4">{type}</td>
+                <td className="text-[#444] py-3 pr-4">{days}</td>
+                <td className="text-[#666] py-3 text-xs">{notes}</td>
               </tr>
             ))}
           </tbody>
@@ -121,11 +121,11 @@ const tabContent: Record<string, React.ReactNode> = {
     </div>
   ),
   'Training & Development': (
-    <div className="space-y-4">
-      <h3 className="font-serif text-lg font-bold text-white">Training & Development</h3>
-      <p className="text-white/80 text-sm font-sans leading-relaxed">The Ritz-Carlton University provides world-class training programmes to all Ladies and Gentlemen. We invest in your continuous growth through structured learning paths.</p>
-      <h4 className="font-serif text-base font-semibold text-white mt-4">Core Programmes</h4>
-      <ul className="list-disc list-inside text-white/80 text-sm font-sans space-y-1">
+    <div className="space-y-6">
+      <h3 className="font-serif text-xl font-semibold text-[#1B2A4A]">Training & Development</h3>
+      <p className="text-sm font-sans text-[#444] leading-relaxed">The Ritz-Carlton University provides world-class training programmes to all Ladies and Gentlemen. We invest in your continuous growth through structured learning paths.</p>
+      <h4 className="font-serif text-lg font-semibold text-[#1B2A4A] mt-6">Core Programmes</h4>
+      <ul className="list-disc list-inside text-sm font-sans text-[#444] space-y-2">
         <li>Gold Standards Orientation (all new hires)</li>
         <li>Departmental Technical Training</li>
         <li>Leadership at Every Level</li>
@@ -135,11 +135,11 @@ const tabContent: Record<string, React.ReactNode> = {
     </div>
   ),
   'Employee Communication': (
-    <div className="space-y-4">
-      <h3 className="font-serif text-lg font-bold text-white">Employee Communication</h3>
-      <p className="text-white/80 text-sm font-sans leading-relaxed">Open, transparent communication is integral to our culture. We encourage dialogue at all levels of the organisation.</p>
-      <h4 className="font-serif text-base font-semibold text-white mt-4">Communication Channels</h4>
-      <ul className="list-disc list-inside text-white/80 text-sm font-sans space-y-1">
+    <div className="space-y-6">
+      <h3 className="font-serif text-xl font-semibold text-[#1B2A4A]">Employee Communication</h3>
+      <p className="text-sm font-sans text-[#444] leading-relaxed">Open, transparent communication is integral to our culture. We encourage dialogue at all levels of the organisation.</p>
+      <h4 className="font-serif text-lg font-semibold text-[#1B2A4A] mt-6">Communication Channels</h4>
+      <ul className="list-disc list-inside text-sm font-sans text-[#444] space-y-2">
         <li>Daily Line-Up meetings at department level</li>
         <li>Monthly Town Hall with General Manager</li>
         <li>HR Intranet portal (this system)</li>
@@ -149,11 +149,11 @@ const tabContent: Record<string, React.ReactNode> = {
     </div>
   ),
   'Rules & Regulations': (
-    <div className="space-y-4">
-      <h3 className="font-serif text-lg font-bold text-white">Rules & Regulations</h3>
-      <p className="text-white/80 text-sm font-sans leading-relaxed">All employees are expected to uphold the highest standards of conduct at all times, both on and off property.</p>
-      <h4 className="font-serif text-base font-semibold text-white mt-4">Key Policies</h4>
-      <ul className="list-disc list-inside text-white/80 text-sm font-sans space-y-1">
+    <div className="space-y-6">
+      <h3 className="font-serif text-xl font-semibold text-[#1B2A4A]">Rules & Regulations</h3>
+      <p className="text-sm font-sans text-[#444] leading-relaxed">All employees are expected to uphold the highest standards of conduct at all times, both on and off property.</p>
+      <h4 className="font-serif text-lg font-semibold text-[#1B2A4A] mt-6">Key Policies</h4>
+      <ul className="list-disc list-inside text-sm font-sans text-[#444] space-y-2">
         <li>Zero tolerance for harassment, discrimination, or bullying</li>
         <li>Strict confidentiality of guest information</li>
         <li>No use of mobile phones in guest-facing areas</li>
@@ -172,21 +172,18 @@ export default function EmployeeHandbook() {
   const nextTab = tabs[activeIdx + 1]
 
   return (
-    <div className="p-6 min-h-full flex flex-col" style={{ backgroundColor: '#1A2E55' }}>
-      <h2 className="font-serif text-xl font-bold text-white mb-5">Employee Handbook</h2>
-
+    <div>
       {/* Tab Bar */}
-      <div className="flex flex-wrap gap-2 mb-6">
+      <div className="flex flex-wrap gap-2 mb-8 border-b border-[#E5E5E5] pb-4">
         {tabs.map(tab => (
           <button
             key={tab}
             onClick={() => setActiveTab(tab)}
-            className={`px-4 py-1.5 rounded-full text-xs font-semibold font-sans transition-all border ${
+            className={`px-4 py-2 text-xs font-sans font-medium transition-all ${
               activeTab === tab
-                ? 'text-white border-transparent'
-                : 'border-white/30 text-white/70 hover:border-white/60 hover:text-white'
+                ? 'bg-[#1B2A4A] text-white'
+                : 'text-[#666] hover:text-[#1B2A4A] hover:bg-[#F5F4F0]'
             }`}
-            style={activeTab === tab ? { backgroundColor: '#B8D4E8', color: '#1A2E55' } : {}}
           >
             {tab}
           </button>
@@ -194,7 +191,7 @@ export default function EmployeeHandbook() {
       </div>
 
       {/* Content */}
-      <div className="flex-1">
+      <div className="bg-white border border-[#E5E5E5] p-8">
         {tabContent[activeTab]}
       </div>
 
@@ -203,8 +200,7 @@ export default function EmployeeHandbook() {
         <div className="flex justify-end mt-8">
           <button
             onClick={() => setActiveTab(nextTab)}
-            className="flex items-center gap-2 px-5 py-2 rounded-md text-sm font-semibold font-sans transition-all hover:opacity-90 active:scale-95 text-[#1A2E55]"
-            style={{ backgroundColor: '#B8D4E8' }}
+            className="flex items-center gap-2 px-6 py-3 border border-[#1B2A4A] text-[#1B2A4A] text-sm font-sans font-medium hover:bg-[#1B2A4A] hover:text-white transition-colors"
           >
             Next: {nextTab}
             <ChevronRight className="w-4 h-4" />

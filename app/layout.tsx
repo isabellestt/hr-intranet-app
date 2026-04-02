@@ -1,10 +1,11 @@
 import type { Metadata } from 'next'
-import { Playfair_Display, Inter } from 'next/font/google'
+import { Cormorant_Garamond, Inter } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
-const playfair = Playfair_Display({
+const cormorant = Cormorant_Garamond({
   subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
   variable: '--font-serif',
 })
 
@@ -26,7 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${playfair.variable} ${inter.variable} font-sans antialiased bg-white`}>
+      <body className={`${cormorant.variable} ${inter.variable} font-sans antialiased bg-white text-[#1A1A1A]`}>
         {children}
         <Analytics />
       </body>
