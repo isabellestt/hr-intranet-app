@@ -1,18 +1,21 @@
 'use client'
 
 import Link from 'next/link'
-import { Search, User, FileText, CalendarCheck, Users, GraduationCap, Rocket, MessageSquare } from 'lucide-react'
+import { User, FileText, CalendarCheck, Clock, Receipt, BookOpen, Users, GraduationCap } from 'lucide-react'
 import TopNavbar from '@/components/top-navbar'
-import CalendarWidget, { StaffDirectoryWidget } from '@/components/calendar-widget'
+import Footer from '@/components/footer'
+import CalendarWidget from '@/components/calendar-widget'
+import { announcements } from '@/lib/mock-data'
 
-const sections = [
-  { label: 'Employee Self-Service', icon: User, href: '/employee-self-service' },
-  { label: 'HR Information & Policies', icon: FileText, href: '/hr-information' },
-  { label: 'Work & Task Management', icon: CalendarCheck, href: '/work-tasks' },
-  { label: 'People & Communication', icon: Users, href: '/people-communication' },
+const quickLinks = [
+  { label: 'My Profile', icon: User, href: '/employee-self-service' },
+  { label: 'My Payslips', icon: FileText, href: '/employee-self-service/payslips' },
+  { label: 'Leave Application', icon: CalendarCheck, href: '/employee-self-service/leave' },
+  { label: 'Attendance', icon: Clock, href: '/employee-self-service/attendance' },
+  { label: 'Claims', icon: Receipt, href: '/employee-self-service/claims' },
+  { label: 'HR Policies', icon: BookOpen, href: '/hr-information' },
+  { label: 'Staff Directory', icon: Users, href: '/people-communication' },
   { label: 'Learning & Development', icon: GraduationCap, href: '/learning-development' },
-  { label: 'HR Processes', icon: Rocket, href: '/hr-processes' },
-  { label: 'Engagement & Feedback', icon: MessageSquare, href: '/engagement-feedback' },
 ]
 
 export default function HomePage() {
@@ -21,68 +24,84 @@ export default function HomePage() {
       <TopNavbar />
 
       {/* Hero Banner */}
-      <div className="relative h-64 md:h-80 overflow-hidden">
+      <div className="relative h-[400px] overflow-hidden">
         <img
           src="/hero-hotel.jpg"
           alt="Ritz-Carlton luxury hotel lobby"
           className="w-full h-full object-cover object-center"
         />
-        <div
-          className="absolute inset-0 flex flex-col items-center justify-center gap-5"
-          style={{ background: 'linear-gradient(135deg, rgba(26,46,85,0.78) 0%, rgba(10,18,35,0.68) 100%)' }}
-        >
-          <h1 className="font-serif text-3xl md:text-4xl font-bold text-white text-center text-balance drop-shadow">
-            Welcome, KSN!
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/60 flex flex-col items-center justify-center px-6">
+          <h1 className="font-serif text-4xl md:text-5xl font-semibold text-white text-center mb-3">
+            Welcome back, KSN
           </h1>
-          <div className="relative w-full max-w-md px-4">
-            <Search className="absolute left-7 top-1/2 -translate-y-1/2 w-4 h-4 text-[#1A2E55]" />
-            <input
-              type="text"
-              placeholder="Search Forms & Templates"
-              className="w-full pl-10 pr-4 py-2.5 rounded-full text-sm bg-white/95 focus:outline-none focus:ring-2 focus:ring-[#B8D4E8] text-[#1A2E55] placeholder-[#6b7a96]"
-            />
+          <p className="text-[#B8975A] text-sm tracking-[0.3em] uppercase font-sans mb-8">
+            The Ritz-Carlton &middot; Human Resources Portal
+          </p>
+          <button className="px-8 py-3 border border-white text-white text-sm font-sans font-medium tracking-wide hover:bg-white hover:text-[#1B2A4A] transition-colors">
+            Search Forms & Templates
+          </button>
+        </div>
+      </div>
+
+      {/* Quick Access Section */}
+      <section className="py-16 px-6 bg-white">
+        <div className="max-w-[1200px] mx-auto">
+          <div className="flex items-center gap-4 mb-10">
+            <h2 className="font-serif text-2xl font-semibold text-[#1B2A4A]">Quick Access</h2>
+            <div className="flex-1 h-px bg-[#B8975A] max-w-[60px]" />
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+            {quickLinks.map(({ label, icon: Icon, href }) => (
+              <Link
+                key={href}
+                href={href}
+                className="flex flex-col items-center gap-4 p-6 bg-white border border-[#E5E5E5] hover:border-[#B8975A] hover:shadow-md transition-all group"
+              >
+                <Icon className="w-6 h-6 text-[#1B2A4A] group-hover:text-[#B8975A] transition-colors" />
+                <span className="font-serif text-sm text-[#1B2A4A] text-center">{label}</span>
+              </Link>
+            ))}
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* Section Cards */}
-      <div className="px-6 py-6 bg-white">
-        <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-7 gap-3 max-w-6xl mx-auto">
-          {sections.map(({ label, icon: Icon, href }) => (
-            <Link
-              key={href}
-              href={href}
-              className="flex flex-col items-center gap-2 p-3 rounded-xl transition-all hover:shadow-md hover:-translate-y-0.5 group"
-              style={{ backgroundColor: '#B8D4E8' }}
-            >
-              <div
-                className="w-10 h-10 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform"
-                style={{ backgroundColor: '#1A2E55' }}
-              >
-                <Icon className="w-5 h-5 text-white" />
+      {/* Announcements + Calendar Section */}
+      <section className="py-16 px-6 bg-[#F5F4F0]">
+        <div className="max-w-[1200px] mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-10">
+            {/* Announcements */}
+            <div>
+              <div className="flex items-center gap-4 mb-8">
+                <h2 className="font-serif text-2xl font-semibold text-[#1B2A4A]">Announcements & Updates</h2>
+                <div className="flex-1 h-px bg-[#B8975A] max-w-[60px]" />
               </div>
-              <span className="text-[10px] font-semibold text-center leading-tight font-sans" style={{ color: '#1A2E55' }}>
-                {label}
-              </span>
-            </Link>
-          ))}
-        </div>
-      </div>
+              <div className="space-y-6">
+                {announcements.map((item, i) => (
+                  <article key={i} className="pb-6 border-b border-[#E5E5E5] last:border-0">
+                    <time className="text-xs font-sans text-[#888] uppercase tracking-wide">{item.date}</time>
+                    <h3 className="font-serif text-lg font-semibold text-[#1B2A4A] mt-2 mb-2">{item.title}</h3>
+                    <p className="text-sm font-sans text-[#666] leading-relaxed mb-3">{item.excerpt}</p>
+                    <button className="text-[#B8975A] text-sm font-sans font-medium hover:underline">
+                      Read more &rarr;
+                    </button>
+                  </article>
+                ))}
+              </div>
+            </div>
 
-      {/* Staff Directory + Calendar */}
-      <div className="flex flex-col md:flex-row gap-6 px-6 pb-10 max-w-6xl mx-auto w-full">
-        {/* Staff Directory ~70% */}
-        <div className="flex-[7] min-w-0 bg-white rounded-xl border border-gray-100 p-5 shadow-sm">
-          <StaffDirectoryWidget />
+            {/* Calendar */}
+            <div>
+              <div className="flex items-center gap-4 mb-8">
+                <h2 className="font-serif text-xl font-semibold text-[#1B2A4A]">Calendar</h2>
+                <div className="flex-1 h-px bg-[#B8975A] max-w-[40px]" />
+              </div>
+              <CalendarWidget />
+            </div>
+          </div>
         </div>
-        {/* Calendar ~30% */}
-        <div className="flex-[3] min-w-0">
-          <h2 className="font-serif text-xl font-bold mb-3" style={{ color: '#1A2E55' }}>
-            Calendar
-          </h2>
-          <CalendarWidget />
-        </div>
-      </div>
+      </section>
+
+      <Footer />
     </div>
   )
 }

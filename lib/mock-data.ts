@@ -85,6 +85,29 @@ export const faqData = [
   },
 ]
 
+export const announcements = [
+  {
+    date: 'March 28, 2026',
+    title: 'Ramadan Kareem: Adjusted Working Hours',
+    excerpt: 'During the Holy Month of Ramadan, working hours for all departments will be reduced by two hours daily. Please coordinate with your manager for updated schedules.',
+  },
+  {
+    date: 'March 20, 2026',
+    title: 'Gold Standards Refresher Training',
+    excerpt: 'All Ladies and Gentlemen are required to complete the annual Gold Standards refresher training by April 15th. Sessions are available in the Learning & Development portal.',
+  },
+  {
+    date: 'March 15, 2026',
+    title: 'Employee Appreciation Week: April 6-10',
+    excerpt: 'Join us in celebrating our incredible team! Activities include a gala dinner, wellness sessions, and special recognition awards. Stay tuned for the full schedule.',
+  },
+  {
+    date: 'March 10, 2026',
+    title: 'New Medical Insurance Provider',
+    excerpt: 'Effective April 1st, our medical insurance will be provided by Daman. Please review the updated benefits summary in HR Information > Benefits Policies.',
+  },
+]
+
 export const staffDirectory = [
   { name: 'Ahmed Al Rashid', role: 'Front Desk Supervisor', department: 'Front Office', id: '01432801' },
   { name: 'Priya Sharma', role: 'Housekeeping Manager', department: 'Rooms', id: '01432812' },

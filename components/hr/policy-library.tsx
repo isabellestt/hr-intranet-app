@@ -13,24 +13,21 @@ const policies = [
 
 export default function HRPolicyLibrary() {
   return (
-    <div className="p-6 min-h-full" style={{ backgroundColor: '#1A2E55' }}>
-      <h2 className="font-serif text-xl font-bold text-white mb-6">HR Policy Library</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 max-w-3xl">
+    <div>
+      <div className="flex items-center gap-4 mb-8">
+        <h2 className="font-serif text-xl font-semibold text-[#1B2A4A]">Policy Library</h2>
+        <div className="flex-1 h-px bg-[#B8975A] max-w-[60px]" />
+      </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {policies.map(({ label, icon: Icon, desc }) => (
           <button
             key={label}
-            className="flex flex-col items-center gap-3 p-5 rounded-xl text-center transition-all hover:-translate-y-0.5 hover:shadow-lg group"
-            style={{ backgroundColor: '#B8D4E8' }}
+            className="flex flex-col items-center gap-4 p-8 bg-white border border-[#E5E5E5] hover:border-[#B8975A] hover:shadow-md transition-all text-center group"
           >
-            <div
-              className="w-12 h-12 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform"
-              style={{ backgroundColor: '#1A2E55' }}
-            >
-              <Icon className="w-6 h-6 text-white" />
-            </div>
+            <Icon className="w-7 h-7 text-[#1B2A4A] group-hover:text-[#B8975A] transition-colors" />
             <div>
-              <div className="font-serif text-sm font-bold text-[#1A2E55] text-balance leading-tight">{label}</div>
-              <div className="text-[11px] text-[#1A2E55]/70 font-sans mt-1">{desc}</div>
+              <div className="font-serif text-base font-semibold text-[#1B2A4A] mb-1">{label}</div>
+              <div className="text-xs text-[#666] font-sans">{desc}</div>
             </div>
           </button>
         ))}
