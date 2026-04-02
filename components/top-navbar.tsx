@@ -57,6 +57,7 @@ export default function TopNavbar() {
             <ellipse cx="26" cy="12" rx="2.5" ry="3.5" fill="#B8975A" opacity="0.9" />
             <ellipse cx="20" cy="9" rx="3" ry="2.5" fill="#B8975A" opacity="0.7" />
           </svg>
+          <img src="Ritz Carlton Logo.png"></img>
         </div>
         <div className="font-serif">
           <div className="text-[10px] tracking-[0.25em] uppercase font-medium leading-none text-[#1B2A4A]">The</div>
@@ -75,11 +76,10 @@ export default function TopNavbar() {
           >
             <Link
               href={item.href}
-              className={`flex items-center gap-1 px-3 py-2 text-xs font-sans font-medium transition-colors ${
-                isActive(item.href)
+              className={`flex items-center gap-1 px-3 py-2 text-xs font-sans font-medium transition-colors ${isActive(item.href)
                   ? 'text-[#1B2A4A]'
                   : 'text-[#666] hover:text-[#1B2A4A]'
-              }`}
+                }`}
             >
               {item.label}
               {item.subItems.length > 0 && <ChevronDown className="w-3 h-3" />}
