@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 import { Search, Bell, ChevronDown } from 'lucide-react'
@@ -27,11 +28,30 @@ const navItems = [
       { label: 'FAQ', href: '/hr-information/faq' },
     ],
   },
-  { label: 'Work & Tasks', href: '/work-tasks', subItems: [] },
-  { label: 'People & Communication', href: '/people-communication', subItems: [] },
-  { label: 'Learning & Development', href: '/learning-development', subItems: [] },
-  { label: 'HR Processes', href: '/hr-processes', subItems: [] },
-  { label: 'Engagement & Feedback', href: '/engagement-feedback', subItems: [] },
+  { label: 'Work & Tasks', href: '/work-tasks', subItems: [
+      { label: 'Company Calendar', href: '/work-tasks' },
+      { label: 'Employee Task Dashboard', href: '/work-tasks/project-dashboard' },
+      { label: 'Facilities Booking', href: '/work-tasks/facilities-booking' },
+  ] },
+  { label: 'People & Communication', href: '/people-communication', subItems: [
+      { label: 'Organisational Chart', href: '/people-communication' },
+      { label: 'Company Updates', href: '/people-communication/company-updates' },
+      { label: 'Birthday Calendar', href: '/people-communication/birthday-calendar' },
+  ] },
+  { label: 'Learning & Development', href: '/learning-development', subItems: [
+      { label: 'Internal Training', href: '/learning-development' },
+      { label: 'Training Proposal', href: '/learning-development/training-proposal' },
+      { label: 'FAQ', href: '/learning-development/faq' },
+  ] },
+  { label: 'HR Processes', href: '/hr-processes', subItems: [
+      { label: 'Onboarding', href: '/hr-processes' },
+      { label: 'Competency Framework', href: '/hr-processes/competency-framework' },
+      { label: 'Internal Job Postings', href: '/hr-processes/internal-job-postings' },
+  ] },
+  { label: 'Engagement & Feedback', href: '/engagement-feedback', subItems: [
+      { label: 'Pulse Survey', href: '/engagement-feedback' },
+      { label: 'Feedback', href: '/engagement-feedback/feedback' },
+  ] },
 ]
 
 export default function TopNavbar() {
@@ -46,7 +66,7 @@ export default function TopNavbar() {
       <Link href="/" className="flex items-center gap-3 flex-shrink-0">
         <div className="w-10 h-10 flex items-center justify-center flex-shrink-0">
           {/* Lion crest SVG */}
-          <svg viewBox="0 0 40 40" width="36" height="36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          {/* <svg viewBox="0 0 40 40" width="36" height="36" fill="none" xmlns="http://www.w3.org/2000/svg">
             <circle cx="20" cy="20" r="18" stroke="#1B2A4A" strokeWidth="1.5" fill="none" />
             <ellipse cx="20" cy="23" rx="7" ry="5.5" fill="#1B2A4A" />
             <circle cx="20" cy="14" r="5.5" fill="#1B2A4A" />
@@ -56,8 +76,14 @@ export default function TopNavbar() {
             <ellipse cx="14" cy="12" rx="2.5" ry="3.5" fill="#B8975A" opacity="0.9" />
             <ellipse cx="26" cy="12" rx="2.5" ry="3.5" fill="#B8975A" opacity="0.9" />
             <ellipse cx="20" cy="9" rx="3" ry="2.5" fill="#B8975A" opacity="0.7" />
-          </svg>
-          <img src="Ritz Carlton Logo.png"></img>
+          </svg> */}
+          <Image
+              src="/ritz-carlton-logo.png"
+              alt="Ritz-Carlton Logo"
+              width={36}
+              height={36}
+              className="object-contain"
+            />
         </div>
         <div className="font-serif">
           <div className="text-[10px] tracking-[0.25em] uppercase font-medium leading-none text-[#1B2A4A]">The</div>

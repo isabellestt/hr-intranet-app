@@ -1,17 +1,10 @@
-import PageLayout from '@/components/page-layout'
 import FAQ from '@/components/hr/faq'
-
-const navItems = [
-  { label: 'HR Policy Library', href: '/hr-information' },
-  { label: 'Employee Handbook', href: '/hr-information/handbook' },
-  { label: 'Benefits Policies', href: '/hr-information/benefits' },
-  { label: 'FAQ', href: '/hr-information/faq' },
-]
+import HRLayout from '@/components/hr/hr-layout'
 
 export default function FAQPage() {
   return (
-    <PageLayout sectionTitle="HR Information & Policies" navItems={navItems}>
+    <HRLayout>
       <FAQ />
-    </PageLayout>
+    </HRLayout>
   )
 }

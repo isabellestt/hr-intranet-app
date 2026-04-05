@@ -1,10 +1,11 @@
 import { StubPage } from '@/components/stub-page'
+import LearningLayout from '@/components/learning-development/learning-layout'
+import Training from '@/components/learning-development/training'
 
 export default function LearningDevelopmentPage() {
   return (
-    <StubPage config={{
-      pageTitle: 'Learning & Development',
-      description: 'This module is under development. Explore training programmes, track your professional development, and earn certifications. Contact HR for assistance.',
-    }} />
+    <LearningLayout>
+      <Training />
+    </LearningLayout>
   )
 }

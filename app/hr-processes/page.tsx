@@ -1,10 +1,11 @@
 import { StubPage } from '@/components/stub-page'
+import ProcessesLayout from '@/components/hr-processes/processes-layout'
+import Onboarding from '@/components/hr-processes/onboarding'
 
 export default function HRProcessesPage() {
   return (
-    <StubPage config={{
-      pageTitle: 'HR Processes',
-      description: 'This module is under development. Streamlined workflows for onboarding, performance management, and career transitions. Contact HR for assistance.',
-    }} />
+    <ProcessesLayout>
+      <Onboarding />
+    </ProcessesLayout>
   )
 }

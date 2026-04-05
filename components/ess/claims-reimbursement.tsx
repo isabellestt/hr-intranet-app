@@ -4,6 +4,26 @@ import { useState } from 'react'
 
 const expenseTypes = ['Meals & Entertainment', 'Travel', 'Accommodation', 'Office Supplies', 'Training', 'Medical', 'Other']
 
+interface ClaimForm {
+  description: string,
+  expenseType: string,
+  amount: string,
+  expenseDate: string,
+  comments: string,
+  submittedDate: string,
+  approvedDate: string,
+}
+
+const INITIAL_FORM: ClaimForm = {
+    description: '',
+    expenseType: 'Meals & Entertainment',
+    amount: '',
+    expenseDate: '',
+    comments: '',
+    submittedDate: new Date().toISOString().split('T')[0],
+    approvedDate: '',
+  }
+
 export default function ClaimsReimbursement() {
   const [form, setForm] = useState({
     description: '',
@@ -22,6 +42,7 @@ export default function ClaimsReimbursement() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     setSubmitted(true)
+    setForm(INITIAL_FORM)
     setTimeout(() => setSubmitted(false), 3000)
   }
 

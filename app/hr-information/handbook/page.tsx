@@ -1,5 +1,6 @@
 import PageLayout from '@/components/page-layout'
 import EmployeeHandbook from '@/components/hr/employee-handbook'
+import HRLayout from '@/components/hr/hr-layout'
 
 const navItems = [
   { label: 'HR Policy Library', href: '/hr-information' },
@@ -10,8 +11,8 @@ const navItems = [
 
 export default function HandbookPage() {
   return (
-    <PageLayout sectionTitle="HR Information & Policies" navItems={navItems}>
+    <HRLayout>
       <EmployeeHandbook />
-    </PageLayout>
+    </HRLayout>
   )
 }

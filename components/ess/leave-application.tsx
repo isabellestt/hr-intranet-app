@@ -5,6 +5,28 @@ import { currentUser } from '@/lib/mock-data'
 
 const leaveTypes = ['Annual', 'Medical', 'Urgent', 'Unpaid']
 
+interface LeaveForm {
+  fullName: string,
+  employeeId: string,
+  days: string,
+  startDate: string,
+  endDate: string,
+  leaveType: string,
+  reason: string,
+  signature: string,
+}
+
+const INITIAL_FORM: LeaveForm = {
+    fullName: currentUser.fullName,
+    employeeId: currentUser.employeeId,
+    days: '',
+    startDate: '',
+    endDate: '',
+    leaveType: 'Annual',
+    reason: '',
+    signature: '',
+  }
+
 export default function LeaveApplication() {
   const [form, setForm] = useState({
     fullName: currentUser.fullName,
@@ -24,6 +46,7 @@ export default function LeaveApplication() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     setSubmitted(true)
+    setForm(INITIAL_FORM)
     setTimeout(() => setSubmitted(false), 3000)
   }
 
@@ -80,6 +103,17 @@ export default function LeaveApplication() {
               className={inputClass}
               required
             />
+          </div>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+          <div>
+            <label className={labelClass}>Approver Email</label>
+              <select name="" id="" className={inputClass}>
+                <option value="">Select Approver</option>
+                <option value="alan@ritzcarlton.com">alan@ritzcarlton.com</option>
+                <option value="sarah@ritzcarlton.com">sarah@ritzcarlton.com</option>
+                <option value="josh@ritzcarlton.com">josh@ritzcarlton.com</option>
+              </select>
           </div>
         </div>
         <div>
