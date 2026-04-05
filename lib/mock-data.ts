@@ -108,6 +108,25 @@ export const announcements = [
   },
 ]
 
+// ── Policy content ────────────────────────────────────────────────────────────
+ 
+export interface PolicySection {
+  heading: string
+  body:     React.ReactNode
+}
+ 
+export interface Policy {
+  id:       string
+  label:    string
+  icon:     React.ElementType
+  desc:     string
+  intro:    string
+  contents: string[]
+  sections: PolicySection[]
+}
+ 
+
+
 export const staffDirectory = [
   { name: 'Ahmed Al Rashid', role: 'Front Desk Supervisor', department: 'Front Office', id: '01432801' },
   { name: 'Priya Sharma', role: 'Housekeeping Manager', department: 'Rooms', id: '01432812' },
