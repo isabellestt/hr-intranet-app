@@ -394,9 +394,9 @@ function PolicyDocument({
     <div className="flex flex-col h-full">
  
       {/* Scrollable content */}
-      <div className="flex-1 overflow-y-auto p-5">
+      <div className="flex-1 overflow-y-auto">
         {/* White document card */}
-        <div className="bg-white p-6 shadow-sm space-y-6">
+        <div className="bg-white shadow-sm space-y-6">
  
           {/* Intro */}
           <div>
@@ -476,10 +476,6 @@ export default function HRPolicyLibrary() {
 
   return (
     <div>
-      <div className="flex items-center gap-4 mb-8">
-        <h2 className="font-serif text-xl font-semibold text-[#1B2A4A]">Policy Library</h2>
-        <div className="flex-1 h-px bg-[#B8975A] max-w-[60px]" />
-      </div>
       <div className="flex gap-5 items-start">
           {/* Sidebar — policy list */}
           <div className="w-44 flex-shrink-0 space-y-1">
