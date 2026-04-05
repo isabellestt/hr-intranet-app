@@ -12,6 +12,7 @@ interface ClaimForm {
   comments: string,
   submittedDate: string,
   approvedDate: string,
+  files?: File[]
 }
 
 const INITIAL_FORM: ClaimForm = {
@@ -22,27 +23,26 @@ const INITIAL_FORM: ClaimForm = {
     comments: '',
     submittedDate: new Date().toISOString().split('T')[0],
     approvedDate: '',
+    files: []
   }
 
 export default function ClaimsReimbursement() {
-  const [form, setForm] = useState({
-    description: '',
-    expenseType: 'Meals & Entertainment',
-    amount: '',
-    expenseDate: '',
-    comments: '',
-    submittedDate: new Date().toISOString().split('T')[0],
-    approvedDate: '',
-  })
+  const [form, setForm] = useState(INITIAL_FORM)
+  const [files, setFiles] = useState<File[]>([])
   const [submitted, setSubmitted] = useState(false)
 
   const update = (key: string) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
     setForm(f => ({ ...f, [key]: e.target.value }))
 
+  const handleFiles = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFiles(Array.from(e.target.files ?? []))
+  }
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     setSubmitted(true)
     setForm(INITIAL_FORM)
+    setFiles([])
     setTimeout(() => setSubmitted(false), 3000)
   }
 
@@ -101,6 +101,38 @@ export default function ClaimsReimbursement() {
           <div>
             <label className={labelClass}>Approved Date</label>
             <input type="text" value="Pending Approval" readOnly className={readOnlyClass} />
+          </div>
+          <div>
+            <label className={labelClass}>Attachments</label>
+            <input
+            id="claim-attachments"
+            type="file"
+            multiple
+            accept=".pdf,.png,.jpg,.jpeg,.doc,.docx"
+            onChange={handleFiles}
+            className="sr-only"
+          />
+
+          {/* Custom trigger */}
+          <label
+            htmlFor="claim-attachments"
+            className="inline-flex w-full items-center px-4 py-2.5 text-sm font-sans border border-[#CCC] text-[#1A1A1A] bg-white cursor-pointer hover:bg-[#F8F8F8] transition-colors"
+          >
+            Choose attachments
+          </label>
+
+          {/* Custom status text */}
+          <p className="mt-2 text-sm text-[#666]">
+            {files.length === 0 ? 'No files selected' : `${files.length} file(s) selected`}
+          </p>
+
+          {files.length > 0 && (
+            <ul className="mt-2 text-sm text-[#666] space-y-1">
+              {files.map((file) => (
+                <li key={`${file.name}-${file.size}`}>{file.name}</li>
+              ))}
+            </ul>
+          )}
           </div>
         </div>
         <div>
