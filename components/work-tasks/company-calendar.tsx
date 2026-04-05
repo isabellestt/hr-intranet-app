@@ -167,7 +167,7 @@ export default function CompanyCalendar() {
               const filtered = filters.size === 0 ? evts : evts.filter(e => filters.has(e.category))
               const isSelected = selected === key
               const isToday    = key === toDateKey(today.getFullYear(), today.getMonth(), today.getDate())
-              const dayCategory = evts[0]?.category as EventCategory | undefined
+              const dayCategory = filtered[0]?.category as EventCategory | undefined
               const dayStyle = dayCategory ? CATEGORY_STYLES[dayCategory] : null
 
               // Up to 3 dot indicators
