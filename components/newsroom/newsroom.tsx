@@ -72,7 +72,7 @@ const JOB_LISTINGS = [
   { title: 'Junior Sous Chef',           dept: 'Kitchen',      location: 'Singapore',  posted: '5 days ago'  },
   { title: 'Sales Executive',            dept: 'Sales',        location: 'Singapore',  posted: '1 week ago'  },
   { title: 'Housekeeping Supervisor',    dept: 'Housekeeping', location: 'Singapore',  posted: '1 week ago'  },
-  { title: 'HR Executive',            dept: 'HR',      location: 'Singapore',  posted: '2 weeks ago' },
+  // { title: 'HR Executive',            dept: 'HR',      location: 'Singapore',  posted: '2 weeks ago' },
 ]
 
 const HR_TIPS = [
