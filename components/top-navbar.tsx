@@ -174,9 +174,9 @@ function NavbarSearch({ onClose }: { onClose: () => void }) {
     <div ref={containerRef} className="relative">
       {/* Input pill */}
       <div
-        className="flex items-center gap-2 px-3 py-1.5"
+        className="flex items-center gap-2 px-3 py-1.5 w-full"
         style={{
-          width:  320,
+          width:  160,
           border: '1px solid #1B2A4A',
         }}
       >
@@ -187,8 +187,8 @@ function NavbarSearch({ onClose }: { onClose: () => void }) {
           value={query}
           onChange={e => setQuery(e.target.value)}
           onKeyDown={handleKeyDown}
-          placeholder="Search pages, forms, policies…"
-          className="flex-1 bg-transparent font-sans text-xs text-[#1B2A4A] placeholder-[#1B2A4A]/35 outline-none"
+          placeholder="Search pages"
+          className="min-w-0 flex-1 bg-transparent font-sans text-xs text-[#1B2A4A] placeholder-[#1B2A4A]/35 outline-none"
         />
         <button
           onClick={onClose}
