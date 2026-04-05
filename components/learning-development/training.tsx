@@ -48,16 +48,27 @@ function AddTrainingModal({
   const [date, setDate] = useState('')
   const [location, setLocation] = useState('')
   const [status, setStatus] = useState('')
+  
+  const formatDateLabel = (iso: string) => {
+    const [y, m, d] = iso.split('-').map(Number)
+    if (!y || !m || !d) return iso
+    return new Date(y, m - 1, d).toLocaleDateString('en-GB', {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric',
+    }) // e.g. 30 April 2026
+  }
 
   const handleAdd = () => {
     if (!name.trim() || !date || !location) return
     onAdd({
       id:       Date.now(),
       name:     name.trim(),
-      date:     date,
+      date:     formatDateLabel(date) || 'TBD',
       location: location,
       status:   'Upcoming',
     })
+    
     onClose()
   }
 
@@ -77,7 +88,7 @@ function AddTrainingModal({
         <div className="px-6 py-5 space-y-5">
           {[
             { label: 'Name', value: name,                 setter: setName,     type: 'text',   placeholder: 'e.g. Training XYZ' },
-            { label: 'Date',     value: date,             setter: setDate, type: 'text',   placeholder: 'e.g. 30 June 2026' },
+            { label: 'Date',     value: date,             setter: setDate, type: 'date',   placeholder: 'e.g. 30 June 2026' },
             { label: 'Location', value: location,           setter: setLocation, type: 'text', placeholder: 'e.g. The Ritz Lounge' },
             // { label: 'Status', value: status,           setter: setStatus, type: 'text', placeholder: 'e.g. Upcoming' },
           ].map(({ label, value, setter, type, placeholder }) => (
@@ -145,6 +156,11 @@ export default function ProjectDashboard() {
   const [training,  setTraining]  = useState<Training[]>(trainingData)
   const [selected,  setSelected]  = useState<Training>(trainingData[0])
   const [showModal, setShowModal] = useState(false)
+
+  const toTime = (d: string) => {
+    const t = new Date(d).getTime()
+    return Number.isNaN(t) ? 0 : t
+  }
 
   return (
     <div className="p-6 min-h-full" style={{ backgroundColor: '#1A2E55' }}>
@@ -281,7 +297,7 @@ export default function ProjectDashboard() {
       {showModal && (
         <AddTrainingModal
           onClose={() => setShowModal(false)}
-          onAdd={(p) => setTraining((prev) => [...prev, p])}
+          onAdd={(p) => setTraining((prev) => [...prev, p].sort((a, b) => toTime(a.date) - toTime(b.date)))}
         />
       )}
     </div>

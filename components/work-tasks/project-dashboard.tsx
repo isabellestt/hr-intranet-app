@@ -47,13 +47,23 @@ function AddProjectModal({
   const [name, setName]         = useState('')
   const [deadline, setDeadline] = useState('')
   const [progress, setProgress] = useState(0)
-
+  
+  const formatDateLabel = (iso: string) => {
+    const [y, m, d] = iso.split('-').map(Number)
+    if (!y || !m || !d) return iso
+    return new Date(y, m - 1, d).toLocaleDateString('en-GB', {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric',
+    }) // e.g. 30 April 2026
+  }
+  
   const handleAdd = () => {
     if (!name.trim() || !deadline) return
     onAdd({
       id:       Date.now(),
       name:     name.trim(),
-      deadline: deadline || 'TBD',
+      deadline: formatDateLabel(deadline) || 'TBD',
       progress: Math.min(100, Math.max(0, progress)),
       status:   'In Progress',
     })
@@ -76,7 +86,7 @@ function AddProjectModal({
         <div className="px-6 py-5 space-y-5">
           {[
             { label: 'Project Name', value: name,                 setter: setName,     type: 'text',   placeholder: 'e.g. Project XYZ' },
-            { label: 'Deadline',     value: deadline,             setter: setDeadline, type: 'text',   placeholder: 'e.g. 30 June 2026' },
+            { label: 'Deadline',     value: deadline,             setter: setDeadline, type: 'date'},
           ].map(({ label, value, setter, type, placeholder }) => (
             <div key={label}>
               <label className="block font-sans text-xs uppercase tracking-widest mb-2" style={{ color: '#B8975A' }}>
@@ -146,6 +156,10 @@ export default function ProjectDashboard() {
   const [projects,  setProjects]  = useState<Project[]>(projectsData)
   const [selected,  setSelected]  = useState<Project>(projectsData[0])
   const [showModal, setShowModal] = useState(false)
+  const toTime = (d: string) => {
+    const t = new Date(d).getTime()
+    return Number.isNaN(t) ? 0 : t
+  }
 
   return (
     <div className="p-6 min-h-full" style={{ backgroundColor: '#1A2E55' }}>
@@ -285,7 +299,7 @@ export default function ProjectDashboard() {
       {showModal && (
         <AddProjectModal
           onClose={() => setShowModal(false)}
-          onAdd={(p) => setProjects((prev) => [...prev, p])}
+          onAdd={(p) => setProjects((prev) => [...prev, p].sort((a, b) => toTime(a.deadline) - toTime(b.deadline)))}
         />
       )}
     </div>
