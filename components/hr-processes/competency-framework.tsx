@@ -188,7 +188,7 @@ function CompetencyTable({ category }: { category: CompetencyCategory }) {
                 className="px-4 py-4 align-top"
                 style={{ border: '1px solid #E0DDD8' }}
               >
-                <p className="font-sans text-xs text-[#444] leading-relaxed">{row.description}</p>
+                <p className="font-sans text-xs text-[#444] leading-relaxed text-center">{row.description}</p>
               </td>
 
               {/* L1 */}
